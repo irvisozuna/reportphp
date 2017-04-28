@@ -1,0 +1,148 @@
+{
+  "version": "0.9.1",
+  "items": [
+    {
+      "id": "fecha",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 428.6,
+      "y": 34,
+      "width": 134.6,
+      "height": 50,
+      "style": {
+        "border-color": "#000000",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#FFFFFF"
+      },
+      "border-radius": 10
+    },
+    {
+      "id": "s",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 34.6,
+      "y": 108,
+      "width": 529,
+      "height": 85,
+      "style": {
+        "border-color": "#000000",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#FFFFFF"
+      },
+      "border-radius": 10
+    },
+    {
+      "id": "asistentes",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 33.6,
+      "y": 216,
+      "width": 528,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 12,
+        "color": "#548dd4",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": 1.4000000000000001,
+        "line-height-ratio": 0.1,
+        "letter-spacing": 1,
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "break-word"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": true,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "text",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 33.6,
+      "y": 240,
+      "width": 467.8,
+      "height": 20,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 18,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "break-word"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": true,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "",
+      "type": "text",
+      "display": true,
+      "description": "",
+      "x": 83,
+      "y": 291.5,
+      "width": 112.3,
+      "height": 99.3,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 18,
+        "color": "#8db3e2",
+        "text-align": "center",
+        "vertical-align": "middle",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": []
+      },
+      "texts": [
+        "safdsa"
+      ]
+    }
+  ],
+  "state": {
+    "layout-guides": [
+      {
+        "type": "x",
+        "position": 77.6
+      }
+    ]
+  },
+  "title": "Hello World",
+  "report": {
+    "paper-type": "A4",
+    "orientation": "portrait",
+    "margin": [
+      20,
+      20,
+      50,
+      20
+    ]
+  }
+}

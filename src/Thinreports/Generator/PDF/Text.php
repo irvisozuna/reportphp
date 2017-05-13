@@ -92,7 +92,7 @@ class Text
             $width,                  // width
             $height,                 // height
             $content,                // text
-            1,                       // border
+            0,                       // border
             $styles['align'],        // align
             false,                   // fill
             1,                       // ln
@@ -121,7 +121,46 @@ class Text
         $content = str_replace("", ' ', $content);
 
         $attrs['single_row'] = true;
-        $this->drawTextBox($content, $x, $y, $width, $height, $attrs);
+
+        //$this->drawTextBox($content, $x, $y, $width, $height, $attrs);
+        $styles = $this->buildTextBoxStyles($height, $attrs);
+
+        if ($styles['color'] === null) {
+            return;
+        }
+        $this->setFontStyles($styles);
+        $this->pdf->setFontSpacing($styles['letter_spacing']);
+        $this->pdf->setCellHeightRatio($styles['line_height']);
+
+        $overflow = $styles['overflow'];
+
+        $font_family = (isset($attrs['font-family']))?$attrs['font-family']:'Helvetica';
+        $font_styles = (isset($attrs['font-style']))?$attrs['font-style']:array();
+        $color       = $styles['color'];
+
+        $emulating = $this->startStyleEmulation($font_family, $font_styles, $color);
+        $this->pdf->MultiCell(
+            $width,                  // width
+            $height,                 // height
+            $content,                // text
+            0,                       // border
+            $styles['align'],        // align
+            false,                   // fill
+            1,                       // ln
+            $x,                      // x
+            $y,                      // y
+            true,                    // reset height
+            0,                       // stretch mode
+            false,                   // is html
+            true,                    // autopadding
+            $overflow['max_height'], // max-height
+            $styles['valign'],       // valign
+            $overflow['fit_cell']    // fitcell
+        );
+
+        if ($emulating) {
+            $this->resetStyleEmulation();
+        }
     }
 
     /**
@@ -182,7 +221,7 @@ class Text
         }
 
         $defaultFontFamily = (isset($attrs['font-family']))?$attrs['font-family']:['Helvetica'];
-       // print_r($attrs);
+
         return array(
             'font_size'      => (isset($attrs['font-size']))?$attrs['font-size']:18,
             'font_family'    => Font::getFontName($defaultFontFamily),

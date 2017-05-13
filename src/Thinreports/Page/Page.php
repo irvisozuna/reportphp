@@ -40,6 +40,7 @@ class Page extends BlankPage
      */
     public function item($id)
     {
+
         if (array_key_exists($id, $this->items)) {
             return $this->items[$id];
         }

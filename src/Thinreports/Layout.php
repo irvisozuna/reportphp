@@ -47,7 +47,6 @@ class Layout
 
         $format = json_decode($file_content, true);
 
-
         if (!self::isCompatible($format['version'])) {
             $rules = array(
                 self::COMPATIBLE_VERSION_RANGE_START,
@@ -56,9 +55,16 @@ class Layout
             throw new Exception\IncompatibleLayout($format['version'], $rules);
         }
 
+        $items = array();
+        foreach ($format["items"] as $item){
+            if(!$item["id"]){
+                $item["id"] = 'qb_'.uniqid();
+            }
+            $items[$item["id"]]= $item;
+        }
         return array(
             'format' => $format,
-            'item_formats' => $format["items"]
+            'item_formats' => $items
         );
     }
 
@@ -206,7 +212,6 @@ class Layout
         }
 
         $item_format = $this->getItem($id);
-
         switch ($item_format['type']) {
             case 'text-block':
                 return new Item\TextBlockItem($owner, $item_format);
@@ -250,12 +255,15 @@ class Layout
      */
     public function getItemFormats()
     {
+
         //Retorno solamente los items que se leyeron
         $items = [];
         foreach ($this->item_formats as $item){
-            if($item["type"])
+            if($item["id"]){
                 $items[$item["id"]] = $item;
+            }
         }
+
         return $items;
     }
     /**

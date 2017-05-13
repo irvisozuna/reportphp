@@ -88,9 +88,9 @@ class Document
     /**
      * @return string PDF data
      */
-    public function render()
+    public function render($name,$output)
     {
-        return $this->pdf->Output();
+        return $this->pdf->Output($name,$output);
         //return $this->pdf->getPDFData();
     }
 

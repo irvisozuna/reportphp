@@ -117,9 +117,9 @@ class Report
      *
      * @return boolean|string
      */
-    public function generate($filename = null)
+    public function generate($filename = null,$output='D')
     {
-        $pdf_data = Generator\PDFGenerator::generate($this);
+        $pdf_data = Generator\PDFGenerator::generate($this,$filename,$output);
         if ($filename === null) {
             return $pdf_data;
         } else {

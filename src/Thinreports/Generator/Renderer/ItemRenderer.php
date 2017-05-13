@@ -51,6 +51,7 @@ class ItemRenderer extends AbstractRenderer
             return false;
         }
 
+
         switch (true) {
             case $item instanceof Item\TextBlockItem:
                 return $item->hasReference() || $item->isPresent();
@@ -63,6 +64,7 @@ class ItemRenderer extends AbstractRenderer
                 return $page->isCountable() && $item->isForReport();
                 break;
             default:
+
                 return true;
                 break;
         }
@@ -189,8 +191,8 @@ class ItemRenderer extends AbstractRenderer
      */
     public function renderTextItem(Item\BasicItem $item)
     {
-
-      $format = $item->getFormat();
+        //print_r("Hola</br>");
+        $format = $item->getFormat();
         $bounds = $item->getBounds();
 
         $this->doc->text->drawText(

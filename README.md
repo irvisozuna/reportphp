@@ -1,4 +1,4 @@
-# Thinreports Generator for PHP
+# Reporteador PHP con Thinreport
 
 [![Latest Stable Version](https://poser.pugx.org/thinreports-php/thinreports-php/version)](https://packagist.org/packages/thinreports-php/thinreports-php)
 [![Latest Unstable Version](https://poser.pugx.org/thinreports-php/thinreports-php/v/unstable)](//packagist.org/packages/thinreports-php/thinreports-php)

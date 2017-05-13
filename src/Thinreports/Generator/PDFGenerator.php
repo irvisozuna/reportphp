@@ -39,10 +39,10 @@ class PDFGenerator
      * @param Report $report
      * @return string
      */
-    static public function generate(Report $report)
+    static public function generate(Report $report,$name = 'doc.pdf',$output='D')
     {
         $generator = new self($report);
-        return $generator->render();
+        return $generator->render($name,$output);
     }
 
     /**
@@ -58,7 +58,7 @@ class PDFGenerator
     /**
      * @return string
      */
-    public function render()
+    public function render($name,$output)
     {
         foreach ($this->report->getPages() as $page) {
             if ($page->isBlank()) {
@@ -67,7 +67,7 @@ class PDFGenerator
                 $this->renderPage($page);
             }
         }
-        return $this->doc->render();
+        return $this->doc->render($name,$output);
     }
 
     /**

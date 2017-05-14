@@ -117,7 +117,7 @@ class Text
      */
     public function drawText($content, $x, $y, $width, $height, array $attrs = array())
     {
-        $content = implode('', (array)$content);
+        $content = implode(PHP_EOL, (array)$content);
         $content = str_replace("", ' ', $content);
 
         $attrs['single_row'] = true;

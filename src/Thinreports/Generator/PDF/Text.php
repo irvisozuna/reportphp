@@ -70,7 +70,7 @@ class Text
      * }
      * @see http://www.tcpdf.org/doc/code/classTCPDF.html
      */
-    public function drawTextBox($content, $x, $y, $width, $height, array $attrs = array())
+    public function drawTextBox($content, $x, $y, $width, $height, array $attrs = array(),$html = true)
     {
         $styles = $this->buildTextBoxStyles($height, $attrs);
 
@@ -100,7 +100,7 @@ class Text
             $y,                      // y
             true,                    // reset height
             0,                       // stretch mode
-            true,                   // is html
+            $html,                   // is html
             true,                    // autopadding
             $overflow['max_height'], // max-height
             $styles['valign'],       // valign
@@ -115,7 +115,7 @@ class Text
     /**
      * {@see self::drawTextBox}
      */
-    public function drawText($content, $x, $y, $width, $height, array $attrs = array())
+    public function drawText($content, $x, $y, $width, $height, array $attrs = array(),$html = false)
     {
         $content = implode(PHP_EOL, (array)$content);
         $content = str_replace("", ' ', $content);
@@ -151,7 +151,7 @@ class Text
             $y,                      // y
             true,                    // reset height
             0,                       // stretch mode
-            false,                   // is html
+            $html,                   // is html
             true,                    // autopadding
             $overflow['max_height'], // max-height
             $styles['valign'],       // valign

@@ -116,7 +116,7 @@ class Layout
         $this->filename = $filename;
         $this->format = $definition['format'];
         $this->item_formats = $definition['item_formats'];
-        $this->identifier = md5($this->format['version']);
+        $this->identifier = md5($this->format['title']);
     }
 
     /**

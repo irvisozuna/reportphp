@@ -14,12 +14,20 @@ abstract class AbstractBlockItem extends AbstractItem
     private $value = '';
 
     /**
-     * @param mixed $value
-     * @return $this
-     */
+ * @param mixed $value
+ * @return $this
+ */
     public function setValue($value)
     {
         $this->value = $value;
+        return $this;
+    }
+    /**
+     * @param mixed $value
+     * @return $this
+     */
+    public function setValueImage($value)
+    {
         return $this;
     }
 

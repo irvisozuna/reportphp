@@ -52,9 +52,9 @@ class Report
         $layout = $this->loadLayout($layout_filename);
         $page_number = $this->getNextPageNumber($countable);
 
+
         $new_page = new Page\Page($this, $layout, $page_number, $countable);
         $this->pages[] = $new_page;
-
         return $new_page;
     }
 

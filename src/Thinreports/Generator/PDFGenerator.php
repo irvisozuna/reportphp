@@ -60,6 +60,7 @@ class PDFGenerator
      */
     public function render($name,$output)
     {
+
         foreach ($this->report->getPages() as $page) {
             if ($page->isBlank()) {
                 $this->doc->addBlankPage();

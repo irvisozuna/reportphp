@@ -115,10 +115,13 @@ class Text
     /**
      * {@see self::drawTextBox}
      */
-    public function drawText($content, $x, $y, $width, $height, array $attrs = array(),$html = false)
+    public function drawText($content, $x, $y, $width, $height, array $attrs = array(),$html = true)
     {
+
         $content = implode(PHP_EOL, (array)$content);
+
         $content = str_replace("", ' ', $content);
+
 
         $attrs['single_row'] = true;
 
@@ -130,7 +133,8 @@ class Text
         }
         $this->setFontStyles($styles);
         $this->pdf->setFontSpacing($styles['letter_spacing']);
-        $this->pdf->setCellHeightRatio($styles['line_height']);
+        //print_r($styles['line_height']);
+        $this->pdf->setCellHeightRatio(1.3);
 
         $overflow = $styles['overflow'];
 

@@ -75,7 +75,6 @@ class LayoutRenderer extends AbstractRenderer
     {
         foreach ($this->items as $attributes) {
             $type_name = $attributes['type'];
-
             switch ($type_name) {
                 case 'text':
                     $this->renderSVGText($attributes);
@@ -96,7 +95,7 @@ class LayoutRenderer extends AbstractRenderer
                     $this->renderSVGTextBlock($attributes);
                     break;
                 case 'image-block':
-                    //$this->renderSVGLine($attributes);
+                    $this->renderSVGImage($attributes);
                     break;
                 case 'page-number':
                    // $this->renderSVGLine($attributes);
@@ -137,7 +136,8 @@ class LayoutRenderer extends AbstractRenderer
             $svg_attrs['y'],
             $svg_attrs['width'],
             $svg_attrs['height'],
-            $styles
+            $styles,
+            false //SI ES HTML
         );
     }
     /**

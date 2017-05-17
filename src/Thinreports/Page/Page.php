@@ -66,11 +66,23 @@ class Page extends BlankPage
     public function setItemValue($id, $value)
     {
         $item = $this->item($id);
+
         if (!$item->isTypeOf('block')) {
             //Los blocktext no se pueden editar por eso este error
             throw new Exception\StandardException('Unedtiable Item', $id);
         }
         $item->setValue($value);
+    }
+    /**
+     * @param string $id
+     * @param mixed $value
+     * @throws Exception\StandardException
+     */
+    public function setItemValueImage($id, $value)
+    {
+        $item = $this->item($id);
+
+        $item->setValueImage($value);
     }
 
     /**

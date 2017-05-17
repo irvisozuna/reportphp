@@ -62,6 +62,7 @@ class Layout
             }
             $items[$item["id"]]= $item;
         }
+
         return array(
             'format' => $format,
             'item_formats' => $items
@@ -212,9 +213,13 @@ class Layout
         }
 
         $item_format = $this->getItem($id);
+
         switch ($item_format['type']) {
             case 'text-block':
                 return new Item\TextBlockItem($owner, $item_format);
+                break;
+            case 'image-block':
+                return new Item\ImageBlockItem($owner, $item_format);
                 break;
             case 's-iblock':
                 return new Item\ImageBlockItem($owner, $item_format);

@@ -21,11 +21,11 @@ class ItemRenderer extends AbstractRenderer
      */
     public function render(Item\AbstractItem $item)
     {
+
         if (!$this->isRenderable($item)) {
             return;
         }
         switch (true) {
-
             case $item instanceof Item\TextBlockItem:
                 $this->renderTextBlockItem($item);
                 break;
@@ -75,6 +75,7 @@ class ItemRenderer extends AbstractRenderer
      */
     public function renderBasicItem(Item\BasicItem $item)
     {
+
         switch (true) {
             case $item->isImage():
                 $this->renderImageItem($item);
@@ -99,6 +100,7 @@ class ItemRenderer extends AbstractRenderer
     public function renderTextBlockItem(Item\TextBlockItem $item)
     {
         $format = $item->getFormat();
+
 
         $bounds = $item->getBounds();
         $styles = $this->buildTextStyles($item->exportStyles());
@@ -191,7 +193,7 @@ class ItemRenderer extends AbstractRenderer
      */
     public function renderTextItem(Item\BasicItem $item)
     {
-        //print_r("Hola</br>");
+
         $format = $item->getFormat();
         $bounds = $item->getBounds();
 

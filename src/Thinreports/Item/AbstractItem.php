@@ -202,6 +202,17 @@ abstract class AbstractItem
     /**
      * @access private
      *
+     * @param string $type_name
+     * @return boolean
+     */
+    public function setImage($base64)
+    {
+        $this->format["data"] = array("base64"=>$base64);
+        return $this->format;
+    }
+    /**
+     * @access private
+     *
      * @return array
      */
     public function getAttributesAll()
